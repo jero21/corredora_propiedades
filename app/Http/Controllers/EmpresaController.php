@@ -15,6 +15,7 @@ class EmpresaController extends Controller
    */
   public function index()
   {
+    // retorna nombre de la empresa, su id, nombre de sus propiedades, su código e id, todo ordenado por nombre de la empresa
     return Empresa::join('propiedad', 'empresa.id', '=', 'propiedad.id_empresa')
             ->select(DB::raw('empresa.nombre as empresa, empresa.id as id_empresa, propiedad.nombre as propiedad, propiedad.codigo as codigo_propiedad, propiedad.id as id_propiedad'))
             ->orderBy('empresa.nombre')
